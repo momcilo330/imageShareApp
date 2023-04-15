@@ -1,0 +1,83 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+
+<head>
+	<title>Gallery</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/gallery.css">
+
+</head>
+
+<body>
+
+	<div class="adjustwrap">
+		<div class="nav">
+			<ul>
+				<li><a href="/"  class="notcurrent">Home</a></li>
+				<!-- <li><a href="/gallery"  class="notcurrent">Gallery</a></li> -->
+
+				<% if(user && user.username) {%>
+						<li>				
+								<a href="/profile" class="notcurrent"><%= user.username %></a>
+						</li>
+						<li>
+								<a href="/logout" class="notcurrent">Logout</a>
+						</li>
+				<% } else { %>
+						<li><a href="/login" class="current">Login / Sign Up</a></li>
+				<% } %>
+		</ul>
+		</div>
+		<div class="container imageGird" style="padding-top: 160px;">
+			<% for (let img of images) { %>
+				<img src="<%= img.path %> ">
+			<% } %>
+		</div>
+
+	</div>
+	<div class="upload">
+		<h1>Upload Your Images Here</h1>
+		<form action="/uploadfile" method="post" enctype="multipart/form-data">
+			<input type="file" name="cashbackfiles" id="cashbackfiles" multiple />
+			<input type="submit" class="adjustbtn">
+		</form>
+	</div>	
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<img src="" id="modalImg">
+		</div>
+</div>
+<script>
+	function modalHandleFun() {
+		// Get the modal
+		var modal = document.getElementById("myModal");
+		// Get the button that opens the modal
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+		// When the user clicks the button, open the modal 
+		var btns = document.querySelectorAll(".imageGird img");
+		for(let btn of btns) {
+				btn.onclick = function() {
+				document.querySelector("#modalImg").setAttribute('src', btn.getAttribute('src'))
+				modal.style.display = "block";
+				}
+		}
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		if (event.target == modal) {
+				modal.style.display = "none";
+		}
+		}
+}
+modalHandleFun()
+</script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="nav">
+            <ul>
+                <li><a href="/"  class="notcurrent">Home</a></li>
+                <li><a href="/login" class="current">Login / Sign Up</a></li>
+            </ul>
+        </div>
+        <div class = "form">
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+            <div class = "left">
+                <img src = "images/login.png">
+            </div>
+            <div class = "right">
+                <form action="/login" method="post" class = "rightCon">
+                    <h1> Here Login</h1>
+                    <label for = "name"><h3>Name</h3></label>
+                    <input class = "text" type="text" class="form-control" name="username" required>
+                    <label for = "password"><h3>Password</h3></label>
+                    <input class = "text" type="password" class="form-control" name="password" required>
+                    <!-- <div class="form-group">
+                        <label>Remember Me</label>
+                        <input type="checkbox" class="form-control" name="remember" value="yes">
+                    </div> -->
+                    <input class = "btn" type = "submit" value = "Login">
+                    <h4><a href="/signup">Sign Up</a> One!</h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

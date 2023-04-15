@@ -1,0 +1,45 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sign Up Here</title>
+	<link rel="stylesheet" href="css/adjuststyle.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="nav">
+			<ul>
+				<li><a href="/"  class="notcurrent">Home</a></li>
+				<li><a href="/login" class="current">Login / Sign Up</a></li>
+			</ul>
+		</div>
+		<div class = "form">
+				<div class = "left">
+						<img src = "./images/login.png">
+				</div>
+				<div class = "right">
+						<div class="signupError"></div>
+						<form action="/signup" method="post" class = "rightCon">
+								<h1> Sign Up</h1>
+								<label for = "name"><h3>Name</h3></label>
+								<input class = "text" type = "text" id= "name" name="username" required>
+								<label for = "password"><h3>Password</h3></label>
+								<input class = "text" type = "password" id= "password" name="password" required>
+								<label for = "conpassword"><h3>Confirm Password</h3></label>
+								<input class = "text" type = "password" id= "conpassword" name="conpassword" required>
+								<input class = "radio" type ="radio" id="term">
+								<label for = "term"><h4>I've read the terms.</h4></label>
+								<br>
+								<input class = "checkbox" type = "checkbox" id= "subscribe">
+								<label for = "subscribe"><h4>subscribe us :)</h4></label>
+								<input class = "btn" type = "submit" value = "Sign Up" disabled>
+						</form>
+				</div>
+		</div>
+</div>
+</body>
+
+</html>
