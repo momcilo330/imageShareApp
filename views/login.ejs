@@ -15,9 +15,6 @@
             </ul>
         </div>
         <div class = "form">
-            <% if (message.length > 0) { %>
-                <div class="alert alert-danger"><%= message %></div>
-            <% } %>
             <div class = "left">
                 <img src = "images/login.png">
             </div>
@@ -34,6 +31,9 @@
                     </div> -->
                     <input class = "btn" type = "submit" value = "Login">
                     <h4><a href="/signup">Sign Up</a> One!</h4>
+                    <% if (message.length > 0) { %>
+                        <div class="alert alert-danger" style="background: #FFC107;padding: 10px;border-radius: 10px;"><%= message %></div>
+                    <% } %>
                 </form>
             </div>
         </div>
